@@ -1,3 +1,7 @@
+-- Uncomment one of the following lines depending on your framework:
+-- QBCore = exports['qb-core']:GetCoreObject()
+-- ESX = exports['es_extended']:getSharedObject()
+
 -- Configuration for Graffiti System
 Config = {}
 
@@ -67,16 +71,37 @@ Config.GraffitiDesigns = {
 
 -- Get player function
 function GetPlayer(source)
-    return source -- Not needed for ox_inventory
+    if QBCore then
+        return QBCore.Functions.GetPlayer(source)
+    elseif ESX then
+        return ESX.GetPlayerFromId(source)
+    else
+        return nil
+    end
 end
 
--- Check if player has item (ox_inventory)
+-- Check if player has item
 function HasItem(source, item)
-    local items = exports.ox_inventory:Search(source, 'slots', item)
-    return items and #items > 0
+    if QBCore then
+        local Player = QBCore.Functions.GetPlayer(source)
+        local itemData = Player and Player.Functions.GetItemByName(item)
+        return itemData and itemData.amount > 0
+    elseif ESX then
+        local xPlayer = ESX.GetPlayerFromId(source)
+        local itemData = xPlayer and xPlayer.getInventoryItem(item)
+        return itemData and itemData.count > 0
+    else
+        return false
+    end
 end
 
--- Remove item from player (ox_inventory)
+-- Remove item from player
 function RemoveItem(source, item, count)
-    exports.ox_inventory:RemoveItem(source, item, count or 1)
+    if QBCore then
+        local Player = QBCore.Functions.GetPlayer(source)
+        if Player then Player.Functions.RemoveItem(item, count or 1) end
+    elseif ESX then
+        local xPlayer = ESX.GetPlayerFromId(source)
+        if xPlayer then xPlayer.removeInventoryItem(item, count or 1) end
+    end
 end

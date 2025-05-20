@@ -71,13 +71,13 @@ end
 
 function HasItem(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
-    local item = Player.Functions.GetItemByName(item)
-    return item and item.amount > 0
+    local itemData = Player.Functions.GetItemByName(item)
+    return itemData and itemData.amount > 0
 end
 
 function RemoveItem(source, item, count)
     local Player = QBCore.Functions.GetPlayer(source)
-    Player.Functions.RemoveItem(item, count)
+    Player.Functions.RemoveItem(item, count or 1)
 end
 ```
 

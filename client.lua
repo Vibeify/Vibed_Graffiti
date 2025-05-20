@@ -47,13 +47,15 @@ function RefreshGraffitiProps()
         
         -- Create a sprite attached to the prop
         local handle = CreateRuntimeTxd("graffiti_" .. id)
-        local dui = CreateDui("nui://graffiti_system/web/graffiti.html?text=" .. tag.text .. "&color=" .. tag.color .. "&design=" .. tag.design, 512, 512)
+        local dui = CreateDui("nui://Vibed_Graffiti/html/graffiti.html?text=" .. tag.text .. "&color=" .. tag.color .. "&design=" .. tag.design, 512, 512)
         local duiHandle = GetDuiHandle(dui)
         CreateRuntimeTextureFromDuiHandle(handle, "graffiti_texture", duiHandle)
-        
+
+        -- Apply runtime texture to the overlay prop
+        AddReplaceTexture("p_cs_poster_top_01", "prop_poster_01a", "graffiti_" .. id, "graffiti_texture")
+
         -- Apply texture to prop
         local posX, posY, posZ = table.unpack(GetEntityCoords(prop))
-        local textureHandle = CreateNamedRuntimeTextureDict("graffiti_" .. id)
         local object = CreateObjectNoOffset(GetHashKey("p_cs_poster_top_01"), posX, posY, posZ, false, false, false)
         
         -- Scale the graffiti
