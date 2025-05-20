@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'Your Name'
+author 'Vibed Development'
 description 'Graffiti System for FiveM - Create tags and claim territory'
 version '1.0.0'
 
