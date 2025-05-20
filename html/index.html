@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graffiti System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="tag-menu">
+        <div class="menu-container">
+            <h1>Graffiti Tagging</h1>
+            
+            <div class="menu-section">
+                <label for="tag-text">Tag Text:</label>
+                <input type="text" id="tag-text" maxlength="20" placeholder="Your tag text...">
+            </div>
+            
+            <div class="menu-section">
+                <label>Tag Design:</label>
+                <div id="designs-container" class="designs-grid"></div>
+            </div>
+            
+            <div class="menu-section">
+                <label for="tag-color">Color:</label>
+                <input type="color" id="tag-color" value="#ff0000">
+            </div>
+            
+            <div class="menu-section">
+                <label for="tag-size">Size: <span id="size-value">1.0</span></label>
+                <input type="range" id="tag-size" min="0.5" max="2.0" step="0.1" value="1.0">
+            </div>
+            
+            <div class="menu-section gang-section">
+                <label for="tag-gang">Gang (optional):</label>
+                <select id="tag-gang">
+                    <option value="">None</option>
+                    <option value="Ballas">Ballas</option>
+                    <option value="Families">Families</option>
+                    <option value="Vagos">Vagos</option>
+                    <!-- Add more gangs as needed -->
+                </select>
+            </div>
+            
+            <div class="menu-actions">
+                <button id="cancel-btn" class="btn btn-cancel">Cancel</button>
+                <button id="spray-btn" class="btn btn-spray">Spray Tag</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
