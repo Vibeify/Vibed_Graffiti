@@ -47,7 +47,7 @@ function RefreshGraffitiProps()
         
         -- Create a sprite attached to the prop
         local handle = CreateRuntimeTxd("graffiti_" .. id)
-        local dui = CreateDui("nui://graffiti_system/web/graffiti.html?text=" .. tag.text .. "&color=" .. tag.color .. "&design=" .. tag.design, 512, 512)
+        local dui = CreateDui("nui://Vibed_Graffiti/html/graffiti.html?text=" .. tag.text .. "&color=" .. tag.color .. "&design=" .. tag.design, 512, 512)
         local duiHandle = GetDuiHandle(dui)
         CreateRuntimeTextureFromDuiHandle(handle, "graffiti_texture", duiHandle)
         
