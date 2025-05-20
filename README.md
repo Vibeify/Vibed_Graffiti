@@ -99,4 +99,4 @@ For gang tags, select your gang from the dropdown to claim territory.
 ## Credits
 
 Created by Vibeify
-Contact: https://discord.gg/7AcwrDfuPv
+Support or Questions: https://discord.gg/7AcwrDfuPv
