@@ -16,6 +16,6 @@ files {
     'html/style.css',
     'html/script.js',
     'html/graffiti.html',
-    'html/fonts/*.ttf',
+    'html/fonts/*.otf',
     'html/images/*.png'
 }
