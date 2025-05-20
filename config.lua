@@ -67,39 +67,16 @@ Config.GraffitiDesigns = {
 
 -- Get player function
 function GetPlayer(source)
-    -- Example for ESX
-    -- return ESX.GetPlayerFromId(source)
-    
-    -- Example for QBCore
-    -- return QBCore.Functions.GetPlayer(source)
-    
-    return source -- Placeholder
+    return source -- Not needed for ox_inventory
 end
 
--- Check if player has item
+-- Check if player has item (ox_inventory)
 function HasItem(source, item)
-    -- Example for ESX
-    -- local xPlayer = ESX.GetPlayerFromId(source)
-    -- local item = xPlayer.getInventoryItem(item)
-    -- return item and item.count > 0
-    
-    -- Example for QBCore
-    -- local Player = QBCore.Functions.GetPlayer(source)
-    -- local item = Player.Functions.GetItemByName(item)
-    -- return item and item.amount > 0
-    
-    return true -- Placeholder (always return true for testing)
+    local items = exports.ox_inventory:Search(source, 'slots', item)
+    return items and #items > 0
 end
 
--- Remove item from player
+-- Remove item from player (ox_inventory)
 function RemoveItem(source, item, count)
-    -- Example for ESX
-    -- local xPlayer = ESX.GetPlayerFromId(source)
-    -- xPlayer.removeInventoryItem(item, count)
-    
-    -- Example for QBCore
-    -- local Player = QBCore.Functions.GetPlayer(source)
-    -- Player.Functions.RemoveItem(item, count)
-    
-    -- Placeholder (do nothing)
-en
+    exports.ox_inventory:RemoveItem(source, item, count or 1)
+end

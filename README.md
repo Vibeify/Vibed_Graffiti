@@ -75,6 +75,23 @@ function RemoveItem(source, item, count)
 end
 ```
 
+## ox_inventory Setup
+
+To use this graffiti system with ox_inventory, add the following to your `items.lua` in the ox_inventory resource:
+
+```lua
+['spray_can'] = {
+    label = 'Spray Can',
+    weight = 200,
+    stack = true,
+    close = true,
+    description = 'A can of spray paint for graffiti tagging.'
+},
+```
+
+- Make sure the item name matches `Config.SprayCanItem` in `config.lua`.
+- Restart your server or reload ox_inventory after adding the item.
+
 ## Usage
 
 1. In-game, equip a spray can item
