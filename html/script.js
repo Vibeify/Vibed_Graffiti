@@ -41,17 +41,11 @@ function loadDesigns() {
         designItem.className = 'design-item';
         designItem.dataset.design = key;
         
-        // Create image element (placeholder for now)
-        const img = document.createElement('img');
-        img.src = `images/${design.texture}.png`;
-        img.alt = design.label;
-        
         // Create label
         const label = document.createElement('p');
         label.textContent = design.label;
         
-        // Append elements
-        designItem.appendChild(img);
+        // Append label only
         designItem.appendChild(label);
         
         // Add click handler
@@ -113,7 +107,7 @@ document.getElementById('spray-btn').addEventListener('click', function() {
     };
     
     // Send to game
-    fetch('https://graffiti_system/createTag', {
+    fetch('https://Vibed_Graffiti/createTag', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=UTF-8',
@@ -128,7 +122,7 @@ document.getElementById('spray-btn').addEventListener('click', function() {
 // Close the menu and reset focus
 function closeMenu() {
     document.getElementById('tag-menu').style.display = 'none';
-    fetch('https://graffiti_system/closeMenu', {
+    fetch('https://Vibed_Graffiti/closeMenu', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=UTF-8',
